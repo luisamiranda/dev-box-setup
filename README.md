@@ -13,7 +13,9 @@ How I like my machine
   - zsh theme:[bullet-train](https://github.com/caiogondim/bullet-train.zsh)
     - [bullet-train code](./zsh/bullet-train)
      OR
-  - [powerlevel10k]
+  - [iTerm themes] (https://github.com/mbadolato/iTerm2-Color-Schemes)
+    - Monokai
+    - Black Metal
   - [Monoid](./fonts/Monoid)
   
 - [VS code]
