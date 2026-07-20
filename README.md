@@ -10,6 +10,7 @@ How I like my machine
 - 
 
 - [iTerm2](https://iterm2.com/)
+  - [set up github SSH](./scripts/github-ssh.md)
   - [oh-my-zsh](https://ohmyz.sh/) 
     - install `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
     - plugins=(git, kubectl, npm, terraform, thefuck) 
