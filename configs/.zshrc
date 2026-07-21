@@ -1,17 +1,28 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/brew/bin:$PATH
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # 256-colors mode
 export TERM="xterm-256color"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="bullet-train"
+
+BULLETTRAIN_PROMPT_SEPARATE_LINE=false
+
+# Theme overrides
+BULLETTRAIN_PROMPT_ORDER=(
+  time
+  dir
+  git
+  status
+  cmd_exec_time
+)
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -73,14 +84,8 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-eval $(thefuck --alias fuck)
-plugins=(
-  git
-  kubectl
-  npm
-  terraform
-  thefuck
-)
+plugins=(git git-prompt npm terraform thefuck)
+eval $(thefuck --alias)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -95,42 +100,33 @@ source $ZSH/oh-my-zsh.sh
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch $(uname -m)"
 
-# Theme overrides
-BULLETTRAIN_PROMPT_ORDER=(
-  time
-  dir
-  git
-  status
-  cmd_exec_time
-)
-
-# Homebrew on Apple Silicon 
-path=('/opt/homebrew/bin' $path) export PATH
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
-alias brow='arch --x86_64 /usr/local/Homebrew/bin/brew'
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-if [ $(arch) = "i386" ]; then
-    alias python="/usr/local/bin/python3"
-    alias pyenv86="arch -x86_64 pyenv"
-    alias func="/usr/local/Cellar/azure-functions-core-tools@4/4.0.4785/func"
-fi
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "NVM_DIR/nvm.sh" # this loads nvm
+[ -s "$NMV_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # this loads nvm bash_completion
+
+parse_git_branch() {
+  branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+  if [[ -n "$branch" ]]; then
+    echo "[⎇ ${branch}]"
+  fi
+}
+
+. "$HOME/.local/bin/env"

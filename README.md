@@ -1,34 +1,57 @@
 # dev-box-setup
-How I like my machine
 
-## Mac OS Installs
+## Pre-requisites
+
+- [set up github SSH as follows](./instructions/github-ssh.md)
+- clone this repo `git clone git@github.com:luisamiranda/dev-box-setup.git`
+- run [main.sh](main.sh)
+
+## Main.sh installs
+
+Run the main.sh script (it does require interaction) in Terminal.
+
+```
+cd dev-box-setup
+zsh main.sh
+```
+
+### Programs
 
 - [homebrew](https://docs.brew.sh/Installation)
-- Docker
-- [Xcode](https://apps.apple.com/us/app/xcode/id497799835)
-- Node.js
-- 
-
+- [docker desktop](https://docs.docker.com/desktop/) (GUI + VM engine + CLI)
 - [iTerm2](https://iterm2.com/)
-  - [set up github SSH](./scripts/github-ssh.md)
-  - [oh-my-zsh](https://ohmyz.sh/) 
-    - install `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
-    - plugins=(git, kubectl, npm, terraform, thefuck) 
-  - zsh theme:[bullet-train](https://github.com/caiogondim/bullet-train.zsh)
-    - [bullet-train code](./zsh/bullet-train)
-     OR
-  - [iTerm themes] (https://github.com/mbadolato/iTerm2-Color-Schemes)
+- [VS code](https://code.visualstudio.com/docs)
+- [oh-my-zsh](https://ohmyz.sh/)
+  - requires packages below
+  - [bullet-train theme](./configs/bullet-train.zsh-theme)
+  - copies and sources [.zshrc](./configs/.zshrc)
+
+### Packages
+
+- [node.js](https://nodejs.org/en)
+- [git](https://git-scm.com/about)
+- [github cli](https://cli.github.com/)
+
+### Fonts
+
+- [Monoid](https://github.com/larsenwork/monoid)
+- [FiraCodeiScript](https://github.com/kencrocken/FiraCodeiScript)
+
+## Manual steps
+
+- VS Code Preferences
+  - Install Extensions
+    - HVE-Core
     - Black Metal
-  - [Monoid](./fonts/Monoid)
-  
-- [VS code]
-  - [FiraCode iScript](./fonts/FiraCode-iScript)
-  - Extensions
-    - Beautiful UI
-    - TODO highlighter
-    - GitLens
+    - Black Formatter
+    - Git Blame
+    - Smart TODO highlighter
     - Prettier
     - Editorconfig
     - Markdown lint
-  - [Settings.json](./vscode/settings)
-  
+  - Copy and paste [Settings.json](./configs/settings.json)
+  - Quit and restart VS Code
+
+- Create iTerm profile
+  - Open iTerm and follow [iTerm settings](./instructions/iterm-settings.com)
+  - Quit and restart iTerm
