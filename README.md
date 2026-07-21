@@ -55,3 +55,10 @@ zsh main.sh
 - Create iTerm profile
   - Open iTerm and follow [iTerm settings](./instructions/iterm-settings.com)
   - Quit and restart iTerm
+
+- Set git profile information in gitconfig
+
+```
+git config --global user.name "Luisa Miranda"
+git config --global user.email "myemail@gmail.com"
+```
