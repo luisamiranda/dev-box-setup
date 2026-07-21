@@ -53,7 +53,7 @@ zsh main.sh
   - Quit and restart VS Code
 
 - Create iTerm profile
-  - Open iTerm and follow [iTerm settings](./instructions/iterm-settings.com)
+  - Open iTerm and follow [iTerm settings](./instructions/iterm-settings.md)
   - Quit and restart iTerm
 
 - Set git profile information in gitconfig

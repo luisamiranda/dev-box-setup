@@ -128,5 +128,3 @@ parse_git_branch() {
     echo "[⎇ ${branch}]"
   fi
 }
-
-. "$HOME/.local/bin/env"
